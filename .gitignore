@@ -139,3 +139,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# HH
+_rez_build

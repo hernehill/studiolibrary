@@ -25,6 +25,7 @@ def commands():
     env.REZ_STUDIOLIBRARY_ROOT = '{root}'
     env.PATH.append('{root}/bin')
     env.PYTHONPATH.append('{root}/src/python')
+    # env.STUDIO_LIBRARY_CONFIG_PATH = ""
 
 
 build_command = 'rez python {root}/rez_build.py'
