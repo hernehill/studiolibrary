@@ -23,8 +23,7 @@ variants = [
 
 def commands():
     env.REZ_STUDIOLIBRARY_ROOT = '{root}'
-    env.PATH.append('{root}/bin')
-    env.PYTHONPATH.append('{root}/src/python')
+    env.PYTHONPATH.append('{root}/src')
     # env.STUDIO_LIBRARY_CONFIG_PATH = ""
 
 
