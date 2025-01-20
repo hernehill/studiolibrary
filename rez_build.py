@@ -6,8 +6,13 @@ import shutil
 
 
 # List of directories and files to be copied or symlinked (if building locally)
-DIRECTORY_LIST = ["src", "bin"]
-FILE_LIST = []
+DIRECTORY_LIST = ["src", "config"]
+FILE_LIST = [
+    "install.gif",
+    "install.mel",
+    "install.py",
+    "install.txt",
+]
 
 
 def get_all_dirs(source_dir):
