@@ -1,6 +1,6 @@
 name = 'studiolibrary'
 
-version = '2.14.1.hh.1.0.0'
+version = '2.14.1.hh.1.0.1'
 
 authors = [
     'Kurt Rathjen',
@@ -13,6 +13,7 @@ with scope('config') as c:
     c.release_packages_path = os.environ['HH_REZ_REPO_RELEASE_EXT']
 
 requires = [
+    "maya",
 ]
 
 private_build_requires = [
@@ -24,7 +25,29 @@ variants = [
 def commands():
     env.REZ_STUDIOLIBRARY_ROOT = '{root}'
     env.PYTHONPATH.append('{root}/src')
-    # env.STUDIO_LIBRARY_CONFIG_PATH = ""
+
+
+def post_commands():
+
+    # NOTE: use REZ built-in getenv function to get environment variables being defined
+    # during the rez env process.
+    projs_root = getenv("HH_PROJECTS_ROOT_LINUX")
+    proj_code = getenv("HH_PROJ_CODE")
+
+    import os
+    proj_root = os.path.join(projs_root, proj_code)
+    proj_configs = os.path.join(proj_root, "configs")
+    proj_libraries = os.path.join(proj_root, "libraries")
+
+    # -------------------------------------------------------
+    # StudioLibrary
+    studiolib_config = os.path.join(proj_configs, "studioLibrary", "config.json")
+    studiolib_db = os.path.join(proj_libraries, "studioLibrary", "database.json")
+    studiolib_meta = os.path.join(proj_libraries, "studioLibrary", "metadata.json")
+
+    env.STUDIO_LIBRARY_CONFIG_PATH = studiolib_config
+    env.STUDIO_LIBRARY_DB_PATH = studiolib_db
+    env.STUDIO_LIBRARY_META_PATH = studiolib_meta
 
 
 build_command = 'rez python {root}/rez_build.py'
