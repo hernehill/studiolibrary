@@ -1,6 +1,6 @@
 name = 'studiolibrary'
 
-version = '2.14.1.hh.1.0.1'
+version = '2.19.0.hh.1.0.0'
 
 authors = [
     'Kurt Rathjen',
