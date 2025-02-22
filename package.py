@@ -29,8 +29,7 @@ def commands():
 
 def post_commands():
 
-    # NOTE: use REZ built-in getenv function to get environment variables being defined
-    # during the rez env process.
+    # NOTE: use built-in getenv to get env variables being defined during rez env process
     projs_root = getenv("HH_PROJS_ROOT_LINUX")
     proj_code = getenv("HH_PROJ_CODE")
 
