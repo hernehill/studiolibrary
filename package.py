@@ -1,6 +1,6 @@
 name = 'studiolibrary'
 
-version = '2.19.0.hh.1.0.1'
+version = '2.19.0.hh.1.0.2'
 
 authors = [
     'Kurt Rathjen',
@@ -30,8 +30,8 @@ def commands():
 def post_commands():
 
     # NOTE: use built-in getenv to get env variables being defined during rez env process
-    projs_root = getenv("HH_PROJS_ROOT_LINUX")
     proj_code = getenv("HH_PROJ_CODE")
+    projs_root = getenv(f"{proj_code}_HH_PROJS_ROOT_LINUX")
 
     import os
     proj_root = os.path.join(projs_root, proj_code)
