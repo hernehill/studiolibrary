@@ -1,6 +1,6 @@
 name = 'studiolibrary'
 
-version = '2.19.0.hh.1.0.4'
+version = '2.19.0.hh.1.0.5'
 
 authors = [
     'Kurt Rathjen',
@@ -25,29 +25,6 @@ variants = [
 def commands():
     env.REZ_STUDIOLIBRARY_ROOT = '{root}'
     env.PYTHONPATH.append('{root}/src')
-
-
-def post_commands():
-
-    import os
-
-    proj_code = os.environ["HH_PROJ_CODE"]
-    projs_root = os.environ[f"{proj_code}_HH_PROJS_ROOT_LINUX"]
-    projs_pipe_subdir = os.environ[f"{proj_code}_HH_PIPE_SUBDIR"]
-
-    proj_root = os.path.join(projs_root, proj_code, projs_pipe_subdir)
-    proj_configs = os.path.join(proj_root, "configs")
-    proj_libraries = os.path.join(proj_root, "libraries")
-
-    # -------------------------------------------------------
-    # StudioLibrary
-    studiolib_config = os.path.join(proj_configs, "studioLibrary", "config.json")
-    studiolib_db = os.path.join(proj_libraries, "studioLibrary", "database.json")
-    studiolib_meta = os.path.join(proj_libraries, "studioLibrary", "metadata.json")
-
-    env.STUDIO_LIBRARY_CONFIG_PATH = studiolib_config
-    env.STUDIO_LIBRARY_DB_PATH = studiolib_db
-    env.STUDIO_LIBRARY_META_PATH = studiolib_meta
 
 
 build_command = 'rez python {root}/rez_build.py'
