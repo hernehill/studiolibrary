@@ -93,7 +93,7 @@ function run_process {
     git push
 
     rez-release --no-latest --message "${LOCAL_VARS[0]}"
-    rez-build -i --symlink
+    rez-build -i --symlink 1
 
 }
 
