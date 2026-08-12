@@ -4,7 +4,10 @@
 import sys
 
 print("Appending rez_build_api.py to sys.path")
-sys.path.append("/mnt/tools/rez_pipe/hh_rez_pckSetup")
+if sys.platform.startswith("win"):
+    sys.path.append("T:/rez_pipe/hh_rez_pckSetup")
+else:
+    sys.path.append("/mnt/tools/rez_pipe/hh_rez_pckSetup")
 import rez_build_api
 
 
